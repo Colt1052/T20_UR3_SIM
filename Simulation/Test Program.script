@@ -1,0 +1,50 @@
+def Test_Program():
+  step_count_a2622b29_cd86_45a4_bc06_0fdf19876c3d = 0
+  thread Step_Counter_Thread_26442d23_8f0d_48bb_aa8c_0a5e031e995f():
+    while (True):
+      step_count_a2622b29_cd86_45a4_bc06_0fdf19876c3d = step_count_a2622b29_cd86_45a4_bc06_0fdf19876c3d + 1
+      sync()
+    end
+  end
+  run Step_Counter_Thread_26442d23_8f0d_48bb_aa8c_0a5e031e995f()
+  set_safety_mode_transition_hardness(1)
+  set_tool_voltage(0)
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 0)
+  set_analog_outputdomain(1, 0)
+  set_input_actions_to_default()
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  set_payload(0.0)
+  set_gravity([0.0, 0.0, 9.82])
+  global cnt_1=0
+  while (True):
+    $ 2 "Robot Program"
+    $ 3 "Pallet"
+    if (cnt_1 == 0):
+      pose_1 = p[-.218427076186, -.268045323922, .157278159801, -.001221212050, 3.116276457649, .038892054510]
+    elif (cnt_1 == 1):
+      pose_1 = p[-.298427040517, -.268045351139, .157278199224, -.001221282775, 3.116276507090, .038891777531]
+    elif (cnt_1 == 2):
+      pose_1 = p[-.358427090911, -.268045369016, .157278266559, -.001220992721, 3.116276739499, .038891284274]
+    end
+    if (cnt_1 >= 2):
+      cnt_1 = 0
+    else:
+      cnt_1 = cnt_1 + 1
+    end
+    $ 9 "Waypoint_4" "noBreak"
+    movel(pose_trans(pose_1, pose_trans(pose_inv(p[-.358427090911, -.268045369016, .157278266559, -.001220992721, 3.116276739499, .038891284274]),p[-.218427125457, -.268045428162, .299999857168, -.001221209522, 3.116276393249, .038892814931])), a=1.2, v=0.25)
+    $ 10 "Approach_1" "noBreak"
+    movel(pose_trans(pose_1, pose_trans(pose_inv(p[-.358427090911, -.268045369016, .157278266559, -.001220992721, 3.116276739499, .038891284274]),p[-.358427110358, -.268045393231, .300000017158, -.001220993513, 3.116276892281, .038890996326])), a=1.2, v=0.25)
+    $ 11 "PatternPoint_1" "noBreak"
+    movel(pose_1, a=1.2, v=0.25)
+    $ 12 "Set" "noBreak"
+    $ 13 "Wait: 0.01" "noBreak"
+    sleep(0.01)
+    $ 14 "Exit_1" "noBreak"
+    movel(pose_trans(pose_1, pose_trans(pose_inv(p[-.358427090911, -.268045369016, .157278266559, -.001220992721, 3.116276739499, .038891284274]),p[-.358427090911, -.268045369016, .157278266559, -.001220992721, 3.116276739499, .038891284274])), a=1.2, v=0.25)
+  end
+end

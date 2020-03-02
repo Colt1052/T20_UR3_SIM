@@ -1,0 +1,15 @@
+ Program
+   Init Variables
+   Robot Program
+     Pallet
+       Pattern: List
+         Waypoint_1
+         Waypoint_2
+         Waypoint_3
+       PalletSequence
+         Waypoint_4
+         Approach_1
+         PatternPoint_1
+         Set
+         Wait: 0.01
+         Exit_1
